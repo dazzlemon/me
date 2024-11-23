@@ -9,5 +9,8 @@ class AppRouter extends RootStackRouter {
           path: '/',
           page: HomeRoute.page,
         ),
+        AutoRoute(
+          page: VidyaRoute.page,
+        ),
       ];
 }

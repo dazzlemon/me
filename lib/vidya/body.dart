@@ -8,7 +8,7 @@ part 'body.g.dart';
 Widget body(BuildContext context) => const BaseScaffold(
       body: Center(
         child: Text(
-          'Hello there',
+          'Vidya',
         ),
       ),
     );
