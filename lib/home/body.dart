@@ -5,7 +5,7 @@ import 'package:me/base/scaffold.dart';
 part 'body.g.dart';
 
 @swidget
-Widget body(BuildContext context) => const BaseScaffold(
+Widget body() => const BaseScaffold(
       body: Center(
         child: Text(
           'Hello there',
