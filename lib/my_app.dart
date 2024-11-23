@@ -11,5 +11,5 @@ Widget myApp() => MaterialApp(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage('Flutter Demo Home Page'),
     );
