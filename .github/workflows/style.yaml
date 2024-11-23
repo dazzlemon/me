@@ -16,4 +16,4 @@ jobs:
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
 
-      - run: dart format --output=none --set-exit-if-changed
+      - run: dart format . --output=none --set-exit-if-changed
