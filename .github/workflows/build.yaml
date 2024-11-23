@@ -16,4 +16,8 @@ jobs:
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
 
+      - run: flutter pub get
+
+      - run: dart run build_runner build
+
       - run: flutter build web
