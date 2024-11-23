@@ -10,16 +10,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   flutter_hooks: ^0.20.5
   functional_widget_annotation: ^0.10.0
 
 dev_dependencies:
-  functional_widget: ^0.10.2
   build_runner: ^2.4.13
   flutter_test:
     sdk: flutter
-
+  functional_widget: ^0.10.2
   solid_lints: ^0.2.3
 
 flutter:

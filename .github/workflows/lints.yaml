@@ -16,7 +16,7 @@ jobs:
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
 
-      - run: fluter pub get
+      - run: flutter pub get
 
       - uses: zgosalvez/github-actions-analyze-dart@v3.0.6
         with:
