@@ -1,3 +1,3 @@
-![example workflow](https://github.com/dazzlemon/me/actions/workflows/style.yaml/badge.svg)
+![style](https://github.com/dazzlemon/me/actions/workflows/style.yaml/badge.svg)
 
 # ME
