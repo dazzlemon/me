@@ -18,6 +18,8 @@ jobs:
 
       - run: flutter pub get
 
+      - run: dart run build_runner build
+
       - uses: zgosalvez/github-actions-analyze-dart@v3.0.6
         with:
           fail-on-infos: true 
