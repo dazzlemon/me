@@ -4,5 +4,6 @@ analyzer:
     public_member_api_docs: ignore
 
 custom_lint:
-  avoid_returning_widgets: false
-  prefer_match_file_name: false
+  rules:
+    - avoid_returning_widgets: false
+    - prefer_match_file_name: false
