@@ -8,12 +8,14 @@ environment:
   sdk: ^3.5.4
 
 dependencies:
+  auto_route: 9.2.2
   flutter:
     sdk: flutter
   flutter_hooks: ^0.20.5
   functional_widget_annotation: ^0.10.0
 
 dev_dependencies:
+  auto_route_generator: 9.0.0
   build_runner: ^2.4.13
   flutter_test:
     sdk: flutter
