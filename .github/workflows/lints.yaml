@@ -1,4 +1,4 @@
-name: style
+name: lints
 
 on: push
 
@@ -16,4 +16,11 @@ jobs:
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
 
-      - run: dart format . --output=none --set-exit-if-changed
+      - run: fluter pub get
+
+      - uses: zgosalvez/github-actions-analyze-dart@v3.0.6
+        with:
+          fail-on-infos: true 
+          fail-on-warnings: true
+
+      - run: dart run custom_lint
