@@ -1,5 +1,4 @@
-import 'dart:ui';
-
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:me/theme/model/app_color.dart';
 import 'package:me/theme/repository/local_colors_repository.dart';
@@ -21,20 +20,24 @@ class ThemeState {
   });
 }
 
+final _fallbackTheme = ThemeState(
+  name: 'black',
+  values: {
+    AppColor.background: Colors.black,
+    AppColor.background2: const Color.fromARGB(255, 36, 36, 36),
+    AppColor.accent: const Color.fromARGB(255, 0, 63, 114),
+  },
+);
+
 @riverpod
 class ThemeNotifier extends _$ThemeNotifier {
   @override
-  Future<ThemeState> build() async => ThemeState(
-        name: 'black',
-        values: await LocalColorsRepository().fetchTheme('black'),
-      );
+  ThemeState build() => _fallbackTheme;
 
   Future<void> setTheme(String name) async {
-    state = AsyncValue.data(
-      ThemeState(
-        name: name,
-        values: await LocalColorsRepository().fetchTheme(name),
-      ),
+    state = ThemeState(
+      name: name,
+      values: await LocalColorsRepository().fetchTheme(name),
     );
   }
 }

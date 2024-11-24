@@ -16,12 +16,7 @@ Widget baseScaffold(
 
   return Scaffold(
     body: ColoredBox(
-      color: currentTheme.when(
-            loading: () => null,
-            data: (data) => data.values[AppColor.background],
-            error: (_, __) => null,
-          ) ??
-          Colors.white,
+      color: currentTheme.values[AppColor.background]!,
       child: Row(
         children: [
           const Menu(),

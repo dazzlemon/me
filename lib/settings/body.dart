@@ -15,6 +15,7 @@ Widget body(WidgetRef ref) {
   return BaseScaffold(
     body: Center(
       child: DropdownMenu<String>(
+        initialSelection: currentTheme.name,
         onSelected: (theme) => theme == null ? null : notifier.setTheme(theme),
         dropdownMenuEntries: themeNames.when(
           data: (names) => names

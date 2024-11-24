@@ -12,15 +12,10 @@ Widget menu(
   BuildContext context,
   WidgetRef ref,
 ) {
-  final currentTheme = ref.watch(themeNotifierProvider);
+  final theme = ref.watch(themeNotifierProvider);
 
   return ColoredBox(
-    color: currentTheme.when(
-          loading: () => null,
-          data: (data) => data.values[AppColor.background2],
-          error: (_, __) => null,
-        ) ??
-        Colors.white,
+    color: theme.values[AppColor.background2]!,
     child: Padding(
       padding: const EdgeInsets.all(8),
       child: Column(
@@ -30,12 +25,7 @@ Widget menu(
             .map<Widget>(
               (e) => ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: currentTheme.when(
-                        loading: () => null,
-                        data: (data) => data.values[AppColor.accent],
-                        error: (_, __) => null,
-                      ) ??
-                      Colors.white,
+                  backgroundColor: theme.values[AppColor.accent],
                 ),
                 onPressed: () => AutoRouter.of(context).pushNamed(e.path),
                 child: Text(e.name),
