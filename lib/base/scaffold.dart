@@ -12,11 +12,11 @@ Widget baseScaffold(
   WidgetRef ref, {
   required Widget body,
 }) {
-  final currentTheme = ref.watch(themeNotifierProvider);
+  final currentTheme = ref.watch(themeNotifierProvider).values;
 
   return Scaffold(
     body: ColoredBox(
-      color: currentTheme.values[AppColor.background] ?? Colors.transparent,
+      color: currentTheme[AppColor.background] ?? Colors.transparent,
       child: Row(
         children: [
           const Menu(),

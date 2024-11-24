@@ -7,4 +7,7 @@ enum AppColor {
 
   /// To be shown on either [background] or[background2] e.g. button.
   accent,
+
+  ///
+  text,
 }
