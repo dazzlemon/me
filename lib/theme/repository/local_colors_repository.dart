@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:me/theme/model/app_color.dart';
 import 'package:me/theme/repository/colors_repository.dart';
@@ -32,4 +34,13 @@ class LocalColorsRepository implements ColorsRepository {
 
   @override
   Future<List<String>> fetchThemeNames() async => _themes.keys.toList();
+
+  final _localStorage = window.localStorage;
+
+  @override
+  Future<String> fetchCurrentThemeName() async =>
+      _localStorage['theme'] ?? 'black';
+
+  @override
+  Future<void> setTheme(String name) async => _localStorage['theme'] = name;
 }

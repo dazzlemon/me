@@ -32,12 +32,18 @@ final _fallbackTheme = ThemeState(
 @riverpod
 class ThemeNotifier extends _$ThemeNotifier {
   @override
-  ThemeState build() => _fallbackTheme;
+  ThemeState build() {
+    LocalColorsRepository().fetchCurrentThemeName().then(setTheme);
+
+    return _fallbackTheme;
+  }
 
   Future<void> setTheme(String name) async {
     state = ThemeState(
       name: name,
       values: await LocalColorsRepository().fetchTheme(name),
     );
+    
+    await LocalColorsRepository().setTheme(name);
   }
 }
