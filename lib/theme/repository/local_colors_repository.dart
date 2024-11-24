@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:me/base/model/app_color.dart';
-import 'package:me/base/repository/colors_repository.dart';
+import 'package:me/theme/model/app_color.dart';
+import 'package:me/theme/repository/colors_repository.dart';
 
 class LocalColorsRepository implements ColorsRepository {
   final _themes = {

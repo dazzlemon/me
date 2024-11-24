@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:me/base/model/app_color.dart';
-import 'package:me/base/repository/local_colors_repository.dart';
+import 'package:me/theme/model/app_color.dart';
+import 'package:me/theme/repository/local_colors_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'theme.g.dart';

@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:me/base/model/app_color.dart';
+import 'package:me/theme/model/app_color.dart';
 
 abstract class ColorsRepository {
   Future<Map<AppColor, Color>> fetchTheme(String name);

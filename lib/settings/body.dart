@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 import 'package:me/base/scaffold.dart';
-import 'package:me/base/state/theme.dart';
+import 'package:me/theme/state/theme.dart';
 
 part 'body.g.dart';
 
