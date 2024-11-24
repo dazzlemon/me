@@ -12,5 +12,8 @@ class AppRouter extends RootStackRouter {
         AutoRoute(
           page: VidyaRoute.page,
         ),
+        AutoRoute(
+          page: SettingsRoute.page,
+        ),
       ];
 }

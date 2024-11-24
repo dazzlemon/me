@@ -7,4 +7,6 @@ part 'app.g.dart';
 final _router = AppRouter();
 
 @swidget
-Widget myApp() => MaterialApp.router(routerConfig: _router.config());
+Widget myApp() => MaterialApp.router(
+      routerConfig: _router.config(),
+    );
