@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:me/theme/model/app_color.dart';
 import 'package:me/theme/repository/theme_data_repository.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final themeDataRepositoryProvider =
-    Provider<ThemeDataRepository>((_) => LocalThemeDataRepository());
+part 'local_theme_data_repository.g.dart';
+
+@riverpod
+ThemeDataRepository themeDataRepository(Ref _) => LocalThemeDataRepository();
 
 class LocalThemeDataRepository implements ThemeDataRepository {
   final _themes = {

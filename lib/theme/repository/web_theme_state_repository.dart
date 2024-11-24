@@ -1,9 +1,12 @@
 import 'dart:html';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:me/theme/repository/theme_state_repository.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final themeStateRepositoryProvider =
-    Provider<ThemeStateRepository>((_) => WebThemeStateRepository());
+part 'web_theme_state_repository.g.dart';
+
+@riverpod
+ThemeStateRepository themeStateRepository(Ref _) => WebThemeStateRepository();
 
 class WebThemeStateRepository extends ThemeStateRepository {
   final _localStorage = window.localStorage;
