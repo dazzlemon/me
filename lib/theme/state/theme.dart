@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:me/theme/model/app_color.dart';
-import 'package:me/theme/repository/local_colors_repository.dart';
+import 'package:me/theme/repository/local_theme_data_repository.dart';
+import 'package:me/theme/repository/theme_data_repository.dart';
+import 'package:me/theme/repository/theme_state_repository.dart';
+import 'package:me/theme/repository/web_theme_state_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'theme.g.dart';
 
 @riverpod
 Future<List<String>> themeNames(Ref ref) =>
-    LocalColorsRepository().fetchThemeNames();
+    LocalThemeDataRepository().fetchThemeNames();
 
 class ThemeState {
   final String name;
@@ -31,9 +34,12 @@ final _fallbackTheme = ThemeState(
 
 @riverpod
 class ThemeNotifier extends _$ThemeNotifier {
+  final ThemeDataRepository _themeDataRepository = LocalThemeDataRepository();
+  final ThemeStateRepository _themeStateRepository = WebThemeStateRepository();
+
   @override
   ThemeState build() {
-    LocalColorsRepository().fetchCurrentThemeName().then(setTheme);
+    _themeStateRepository.fetchCurrentThemeName().then(setTheme);
 
     return _fallbackTheme;
   }
@@ -41,9 +47,9 @@ class ThemeNotifier extends _$ThemeNotifier {
   Future<void> setTheme(String name) async {
     state = ThemeState(
       name: name,
-      values: await LocalColorsRepository().fetchTheme(name),
+      values: await _themeDataRepository.fetchTheme(name),
     );
-    
-    await LocalColorsRepository().setTheme(name);
+
+    await _themeStateRepository.setTheme(name);
   }
 }
