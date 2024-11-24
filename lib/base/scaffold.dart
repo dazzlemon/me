@@ -16,7 +16,7 @@ Widget baseScaffold(
 
   return Scaffold(
     body: ColoredBox(
-      color: currentTheme.values[AppColor.background]!,
+      color: currentTheme.values[AppColor.background] ?? Colors.transparent,
       child: Row(
         children: [
           const Menu(),
