@@ -17,6 +17,7 @@ Widget baseDropdownMenu<T>(
   final theme = ref.watch(themeNotifierProvider).values;
   final textColor = theme[AppColor.text] ?? Colors.transparent;
   final backgroundColor = theme[AppColor.accent] ?? Colors.transparent;
+  const radius = Radius.circular(8);
 
   return Theme(
     data: ThemeData(
@@ -32,19 +33,27 @@ Widget baseDropdownMenu<T>(
         shadowColor: const WidgetStatePropertyAll(Colors.transparent),
         elevation: const WidgetStatePropertyAll(0),
         padding: const WidgetStatePropertyAll(EdgeInsets.zero),
-        shape: const WidgetStatePropertyAll(ContinuousRectangleBorder()),
+        shape: const WidgetStatePropertyAll(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: radius,
+            ),
+          ),
+        ),
         visualDensity: VisualDensity.standard,
       ),
       inputDecorationTheme: InputDecorationTheme(
         suffixIconColor: textColor,
         filled: true,
         fillColor: backgroundColor,
-        errorBorder: InputBorder.none,
-        focusedBorder: InputBorder.none,
-        focusedErrorBorder: InputBorder.none,
-        disabledBorder: InputBorder.none,
-        enabledBorder: InputBorder.none,
-        border: InputBorder.none,
+        border: MaterialStateUnderlineInputBorder.resolveWith(
+          (state) => UnderlineInputBorder(
+            borderSide: BorderSide(color: textColor),
+            borderRadius: const BorderRadius.vertical(
+              top: radius,
+            ),
+          ),
+        ),
       ),
       textStyle: TextStyle(color: textColor),
       initialSelection: initialSelection,
