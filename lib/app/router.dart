@@ -11,6 +11,14 @@ class AppRouter extends RootStackRouter {
         ),
         AutoRoute(
           page: VidyaRoute.page,
+          children: [
+            AutoRoute(
+              page: GoodGamesRoute.page,
+            ),
+            AutoRoute(
+              page: BacklogRoute.page,
+            ),
+          ],
         ),
         AutoRoute(
           page: SettingsRoute.page,
