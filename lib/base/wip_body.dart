@@ -11,7 +11,7 @@ part 'wip_body.g.dart';
 Widget wipBody(WidgetRef ref) {
   final currentTheme = ref.watch(themeNotifierProvider);
 
-  return  BaseScaffold(
+  return BaseScaffold(
     body: Center(
       child: Text(
         'This page is not implemented yet',
