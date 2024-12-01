@@ -67,19 +67,13 @@ Widget menuItemSubmenu(
   final isChildHovered = useState(false);
   final isParentHovered = useState(false);
 
-  print('child = ${isChildHovered.value}');
-  print('parent = ${isParentHovered.value}');
-  print('controller = ${controller.hashCode}');
-
   if (!isChildHovered.value && !isParentHovered.value && controller.isShowing) {
     WidgetsBinding.instance.addPostFrameCallback((_) => controller.hide());
-    print('hide');
   }
 
   if ((isChildHovered.value || isParentHovered.value) &&
       !controller.isShowing) {
     WidgetsBinding.instance.addPostFrameCallback((_) => controller.show());
-    print('show');
   }
 
   return CompositedTransformTarget(
