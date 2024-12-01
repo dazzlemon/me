@@ -174,3 +174,14 @@ This solution is too verbose for me.
 ### Kotlin vs Rust (for backend)
 
 ???
+
+## Weird considerations
+
+This is just a list of languages that I probably shouldn't and probably wouldn't consider:
+
+1. LISPs
+2. Swift
+3. Haskell
+4. Lua
+5. Scala
+6. Elixir
