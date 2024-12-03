@@ -4,7 +4,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:me/base/menu/menu_base.dart';
-import 'package:me/theme/model/app_color.dart';
 import 'package:me/theme/state/theme.dart';
 
 part 'menu_item_base.g.dart';
@@ -16,10 +15,10 @@ Widget menuItemBase(
   required String text,
   bool highlight = false,
 }) {
-  final theme = ref.watch(themeNotifierProvider).values;
+  final theme = ref.watch(themeProvider);
 
   return Container(
-    color: highlight ? theme[AppColor.accent] : null,
+    color: highlight ? theme.accent : null,
     padding: const EdgeInsets.symmetric(
       vertical: 10,
       horizontal: 20,
@@ -28,7 +27,7 @@ Widget menuItemBase(
       child: Text(
         text,
         style: TextStyle(
-          color: theme[AppColor.text],
+          color: theme.text,
         ),
       ),
     ),

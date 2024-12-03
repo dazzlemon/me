@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
-import 'package:me/theme/model/app_color.dart';
 import 'package:me/theme/state/theme.dart';
 
 part 'base_dropdown_menu.g.dart';
@@ -14,9 +13,9 @@ Widget baseDropdownMenu<T>(
   required String Function(T) valueToString,
   required List<T> values,
 }) {
-  final theme = ref.watch(themeNotifierProvider).values;
-  final textColor = theme[AppColor.text] ?? Colors.transparent;
-  final backgroundColor = theme[AppColor.accent] ?? Colors.transparent;
+  final theme = ref.watch(themeProvider);
+  final textColor = theme.text;
+  final backgroundColor = theme.accent;
   const radius = Radius.circular(8);
 
   return Theme(
@@ -64,7 +63,7 @@ Widget baseDropdownMenu<T>(
               value: e,
               label: valueToString(e),
               style: MenuItemButton.styleFrom(
-                foregroundColor: theme[AppColor.text] ?? Colors.transparent,
+                foregroundColor: theme.text,
                 shape: const ContinuousRectangleBorder(),
               ),
             ),

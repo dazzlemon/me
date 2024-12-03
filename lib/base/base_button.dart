@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
-import 'package:me/theme/model/app_color.dart';
 import 'package:me/theme/state/theme.dart';
 
 part 'base_button.g.dart';
@@ -12,12 +11,12 @@ Widget baseButton(
   required String text,
   required VoidCallback? onPressed,
 }) {
-  final theme = ref.watch(themeNotifierProvider).values;
+  final theme = ref.watch(themeProvider);
 
   return FilledButton(
     style: FilledButton.styleFrom(
       elevation: 0,
-      backgroundColor: theme[AppColor.accent],
+      backgroundColor: theme.accent,
       shadowColor: Colors.transparent,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
@@ -27,7 +26,7 @@ Widget baseButton(
     child: Text(
       text,
       style: TextStyle(
-        color: theme[AppColor.text],
+        color: theme.text,
       ),
     ),
   );
